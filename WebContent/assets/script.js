@@ -4,8 +4,6 @@ const cssPlaceholder = '/* your css code */\n\np{\n    color: red; \n}'
 const container = document.querySelector('.container')
 const navbar = document.querySelector('.navbar')
 
-var hasChanged = false;
-
 const windowHeight = window.innerHeight;
 
 container.style.height = windowHeight - navbar.offsetHeight + 'px';
@@ -37,11 +35,14 @@ var result = CodeMirror.fromTextArea(resulteditor, {
 htmlMixedEditor.on('change', changeListener)
 cssEditor.on('change', changeListener)
 
+
+var changes = 0;
+
 htmlMixedEditor.getDoc().setValue(htmlPlaceholder)
 cssEditor.getDoc().setValue(cssPlaceholder)
 
 function changeListener() {
-    hasChanged = true;
+    changes++
     try {
         const html = htmlMixedEditor.getValue()
         const css = cssEditor.getValue()
@@ -86,9 +87,9 @@ resultCopyButton.addEventListener('click', function () {
 })
 
 window.onbeforeunload = function () {
-    if (hasChanged) {
+    if (changes > 2) {
         return "";
-    }else{
-        return null;
+    } else {
+        return void (0);
     }
 }
