@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS to Inline Styles converter</title>
+    <link rel="stylesheet" href="assets/codemirror/codemirror.min.css" />
+    <link rel="stylesheet" href="assets/codemirror/dracula.min.css" />
+    <link rel="stylesheet" href="assets/styles.min.css" />
+</head>
+
+<body>
+    <div class="navbar">
+        CSS to inline-style converter
+    </div>
+    <div class="container">
+        <div class="editors flex">
+            <div class="editor-container">
+                <div class="editor editor-html">
+                    <div class="editor-header" style="border-right:2px solid white">HTML</div>
+                    <textarea id="htmleditor"></textarea>
+                </div>
+            </div>
+            <div class="editor-container">
+                <div class="editor editor-css">
+                    <div class="editor-header">CSS</div>
+                    <textarea id="csseditor"></textarea>
+                </div>
+                <div class="editor editor-result">
+                    <div class="editor-header">Result</div>
+                    <textarea id="resulteditor"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/beautify-html.min.js"></script>
+    <script src="assets/codemirror/codemirror.min.js"></script>
+    <script src="assets/codemirror/htmlmixed.min.js"></script>
+    <script src="assets/codemirror/css.min.js"></script>
+    <script src="assets/codemirror/xml.min.js"></script>
+    <script src="assets/cssparser.min.js"></script>
+    <script src="assets/script.min.js"></script>
+</body>
+
+</html>
