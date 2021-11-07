@@ -1,4 +1,4 @@
-const htmlPlaceholder = '<html>\n\n<head></head>\n\n<body>\n  <p style="color: red;">Your HTML code...</p>\n</body>\n  \n</html>';
+const htmlPlaceholder = '<html>\n\n<head></head>\n\n<body>\n  <p>Your HTML code...</p>\n</body>\n  \n</html>';
 const cssPlaceholder = '/* your css code */\n\np{\n    color: red; \n}'
 
 const container = document.querySelector('.container')

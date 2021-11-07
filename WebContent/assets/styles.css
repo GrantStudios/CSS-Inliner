@@ -37,12 +37,10 @@ body {
     flex: 1;
 }
 
-.CodeMirror {
-    height: calc(100% - 27px);
+.CodeMirror{
+    height:calc(100% - 27px);
 }
-
-.editor-css,
-.editor-result {
+.editor-css {
     height: calc(50% - 2px);
 }
 
@@ -87,6 +85,10 @@ body {
 .editor-html {
     height: calc(100% - 2px);
     border-right: none;
+}
+
+.editor-result{
+    height: calc(50% - 1px);
 }
 
 .divider{
