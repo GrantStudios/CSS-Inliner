@@ -46,7 +46,7 @@ function changeListener() {
                 if (e.type == 'rule') {
                     const keys = Object.keys(e.declarations);
                     e.selectors.forEach(selector => {
-                        parsedHTML.body.querySelectorAll(selector).forEach(element => {
+                        parsedHTML.querySelectorAll(selector).forEach(element => {
                             keys.forEach(prop => element.style[prop] = e.declarations[prop]);
                         })
                     })
@@ -65,7 +65,13 @@ function changeListener() {
             result.getDoc().setValue(html_beautify(parsedHTML.documentElement.outerHTML))
         }
     } catch (e) {
-        console.log(e)
         result.getDoc().setValue('...')
     }
 }
+
+function copy(e){var n=document.createElement("textarea");n.innerHTML=e,document.body.appendChild(n),n.select();var o=document.execCommand("copy");return document.body.removeChild(n),o}
+
+const resultCopyButton = document.getElementById('result-copy');
+resultCopyButton.addEventListener('click', function(){
+    copy(result.getValue());
+})

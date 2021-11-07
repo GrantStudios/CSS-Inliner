@@ -6,7 +6,7 @@
     <title>CSS to Inline Styles converter</title>
     <link rel="stylesheet" href="assets/codemirror/codemirror.min.css" />
     <link rel="stylesheet" href="assets/codemirror/dracula.min.css" />
-    <link rel="stylesheet" href="assets/styles.min.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
 </head>
 
 <body>
@@ -27,7 +27,10 @@
                     <textarea id="csseditor"></textarea>
                 </div>
                 <div class="editor editor-result">
-                    <div class="editor-header">Result</div>
+                    <div class="editor-header flex">
+                        <div>Result</div>
+                        <div id="result-tools"><a id="result-copy" href="javascript:void(0)">Copy</a></div>
+                    </div>
                     <textarea id="resulteditor"></textarea>
                 </div>
             </div>
@@ -39,7 +42,7 @@
     <script src="assets/codemirror/css.min.js"></script>
     <script src="assets/codemirror/xml.min.js"></script>
     <script src="assets/cssparser.min.js"></script>
-    <script src="assets/script.min.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 
 </html>
