@@ -13,11 +13,20 @@
     <div class="navbar">
         CSS to inline-style converter
     </div>
-    <div class="container">
+    <div class="container flex">
+        <div class="leftbar">
+            This tool helps convert external CSS to inline styles in HTML.<br><br>
+            This can be used to send emails with external styles.<br><br>
+            Simply extract the external styles (including styles in <code>style</code> tags) and paste them into the CSS
+            editor (top right).
+            <div class="divider"></div>
+            This site is open source, developed by:<br><br>
+            <a class="github-link flex" href="https://github.com/GrantStudios">GrantStudios <img src="assets/images/githublogos/github20.png" class="github-logo"></a>
+        </div>
         <div class="editors flex">
             <div class="editor-container">
                 <div class="editor editor-html">
-                    <div class="editor-header" style="border-right:2px solid white">HTML</div>
+                    <div class="editor-header">HTML</div>
                     <textarea id="htmleditor"></textarea>
                 </div>
             </div>
@@ -39,6 +48,7 @@
     <script src="assets/beautify-html.min.js"></script>
     <script src="assets/codemirror/codemirror.min.js"></script>
     <script src="assets/codemirror/htmlmixed.min.js"></script>
+    <script src="assets/codemirror/javascript.min.js"></script>
     <script src="assets/codemirror/css.min.js"></script>
     <script src="assets/codemirror/xml.min.js"></script>
     <script src="assets/cssparser.min.js"></script>

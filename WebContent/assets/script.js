@@ -1,5 +1,10 @@
+const htmlPlaceholder = '<html>\n\n<head></head>\n\n<body>\n  <p style="color: red;">Your HTML code...</p>\n</body>\n  \n</html>';
+const cssPlaceholder = '/* your css code */\n\np{\n    color: red; \n}'
+
 const container = document.querySelector('.container')
 const navbar = document.querySelector('.navbar')
+
+var hasChanged = false;
 
 const windowHeight = window.innerHeight;
 
@@ -32,7 +37,11 @@ var result = CodeMirror.fromTextArea(resulteditor, {
 htmlMixedEditor.on('change', changeListener)
 cssEditor.on('change', changeListener)
 
+htmlMixedEditor.getDoc().setValue(htmlPlaceholder)
+cssEditor.getDoc().setValue(cssPlaceholder)
+
 function changeListener() {
+    hasChanged = true;
     try {
         const html = htmlMixedEditor.getValue()
         const css = cssEditor.getValue()
@@ -50,10 +59,10 @@ function changeListener() {
                             keys.forEach(prop => element.style[prop] = e.declarations[prop]);
                         })
                     })
-                }else if(e.type == '@import'){
+                } else if (e.type == '@import') {
                     let matches = e.value.match(/'|"/g);
                     let firstQuoteIndex = e.value.indexOf(matches[0])
-                    let lastQuoteIndex = e.value.lastIndexOf(matches[matches.length-1]);
+                    let lastQuoteIndex = e.value.lastIndexOf(matches[matches.length - 1]);
                     const url = e.value.substring(firstQuoteIndex + 1, lastQuoteIndex);
                     var linkElement = document.createElement('link')
                     linkElement.href = url;
@@ -69,9 +78,17 @@ function changeListener() {
     }
 }
 
-function copy(e){var n=document.createElement("textarea");n.innerHTML=e,document.body.appendChild(n),n.select();var o=document.execCommand("copy");return document.body.removeChild(n),o}
+function copy(e) { var n = document.createElement("textarea"); n.innerHTML = e, document.body.appendChild(n), n.select(); var o = document.execCommand("copy"); return document.body.removeChild(n), o }
 
 const resultCopyButton = document.getElementById('result-copy');
-resultCopyButton.addEventListener('click', function(){
+resultCopyButton.addEventListener('click', function () {
     copy(result.getValue());
 })
+
+window.onbeforeunload = function () {
+    if (hasChanged) {
+        return "";
+    }else{
+        return null;
+    }
+}
