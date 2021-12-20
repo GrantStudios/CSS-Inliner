@@ -1,6 +1,6 @@
 # CSS-Inliner
 
-### [[Use it now!]](https://grantstudios.github.io/CSS-Inliner/docs/)
+### [[Use it now!]](https://grantstudios.github.io/CSS-Inliner/)
 
 ![image](https://user-images.githubusercontent.com/87148422/146696270-35012a5a-ab21-492f-ade8-7335b41ae62f.png)
 
